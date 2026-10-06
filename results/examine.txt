@@ -1,0 +1,84 @@
+THE SURVIVORS, TAKEN APART (post-hoc; NQ 2021-2026, one MNQ, real costs)
+1,406 sessions, 2021-02-02 .. 2026-09-25
+
+1. TRADES
+  key            trades a year days in  win %  avg win avg loss    PF long %   $ long  $ short held min
+  noise             846    150     825    58%     +217     -221  1.34    50%  +17,764   +9,138      289
+  noise_vwap      1,233    219     825    41%     +177      -97  1.29    49%  +14,060   +6,248      117
+  noise_vwap_90   1,129    200     763    39%     +199     -108  1.17    50%   +7,804   +4,690      118
+  monday            262     46     262    60%     +274     -255  1.63   100%  +16,714       +0      390
+  first60_hold    1,405    249   1,404    55%     +220     -230  1.17    52%  +18,164   +6,966      330
+  orb30           1,372    243   1,372    50%     +220     -196  1.11    53%  +12,480   +1,748      264
+  long_day        1,406    249   1,405    53%     +278     -308  1.04   100%   +8,098       +0      390
+
+2. WHERE THE PROFIT SITS
+  key              total $  best day best 5 days without best 1% of days  days up worst day
+  noise            +26,902    +3,611         33%                 +11,142      58%    -1,890
+  noise_vwap       +20,308    +2,986         40%                  +5,814      46%      -690
+  noise_vwap_90    +12,493    +2,986         65%                  -1,950      43%    -1,297
+  monday           +16,714    +1,266         32%                  +5,020      60%    -1,168
+  first60_hold     +25,130    +3,610         34%                  +8,084      55%    -2,244
+  orb30            +14,227    +3,114         58%                  -1,844      50%      -892
+  long_day          +8,098    +4,086        121%                 -10,922      54%    -2,148
+
+3. BEFORE AND AFTER PUBLICATION (2024-05-01: the noise-area paper's sample ends April 2024)
+  key            | before: sessions  $ a year Sharpe      t | after: sessions  $ a year Sharpe      t
+  noise          |              811    +4,779  +1.59  +2.85 |             595    +4,757  +1.00  +1.54
+  noise_vwap     |              811    +3,529  +1.53  +2.75 |             595    +3,698  +0.97  +1.49
+  noise_vwap_90  |              811    +4,332  +1.91  +3.42 |             595      -641  -0.16  -0.24
+  monday         |              811    +1,896  +0.98  +1.75 |             595    +4,403  +1.52  +2.34
+  first60_hold   |              811    +5,067  +1.19  +2.13 |             595    +3,631  +0.60  +0.93
+  orb30          |              811    +3,610  +1.00  +1.79 |             595    +1,056  +0.21  +0.32
+  long_day       |              811    +1,653  +0.31  +0.56 |             595    +1,143  +0.15  +0.24
+  (in dollars, so a wide-ranging year counts for more than it does in the batch's DATR units)
+
+4. INSIDE THE DAY: the worst open loss against the $1,200 daily limit (the batch only saw closes)
+  key            worst moment days at -$1,200 or worse of which closed above -$1,200 days at -$600
+  noise                -2,222                        2                             1            49
+  noise_vwap             -748                        0                             0             8
+  noise_vwap_90        -1,329                        1                             0            14
+  monday               -1,478                        3                             3            19
+  first60_hold         -2,622                        7                             1            82
+  orb30                -1,611                        1                             1            14
+  long_day             -2,354                       19                            12           166
+  (a day that touches the limit is closed out there, so its later recovery would not have been earned)
+
+5. HOW ALIKE THEY ARE: correlation of daily dollars (bot = the reference trade list at one MNQ)
+                       noise  noise_vwap noise_vwap_      monday first60_hol       orb30    long_day         bot
+  noise                +1.00       +0.79       +0.75       +0.01       +0.53       +0.60       +0.02       +0.35
+  noise_vwap           +0.79       +1.00       +0.87       +0.04       +0.36       +0.56       -0.02       +0.32
+  noise_vwap_90        +0.75       +0.87       +1.00       -0.01       +0.38       +0.58       -0.03       +0.30
+  monday               +0.01       +0.04       -0.01       +1.00       -0.00       -0.01       +0.38       +0.07
+  first60_hold         +0.53       +0.36       +0.38       -0.00       +1.00       +0.60       +0.08       +0.32
+  orb30                +0.60       +0.56       +0.58       -0.01       +0.60       +1.00       -0.01       +0.44
+  long_day             +0.02       -0.02       -0.03       +0.38       +0.08       -0.01       +1.00       +0.00
+  bot                  +0.35       +0.32       +0.30       +0.07       +0.32       +0.44       +0.00       +1.00
+
+6. THE ACCOUNT ($2,000 trailing limit on closes, a fresh account each month): each rule alone
+  what runs                           $ a year  worst DD worst day bust<=60  <=120  <=250 median @120 best day share
+  noise                                 +4,767    -2,933    -1,890       5%    15%    20%      +2,042            13%
+  noise_vwap                            +3,599    -4,050      -690       3%    11%     9%      +1,741            15%
+  noise_vwap_90                         +2,214    -5,814    -1,297       8%    19%    22%      +1,110            24%
+  monday                                +2,962    -2,666    -1,168       6%    16%    24%      +1,205             8%
+  noise_vwap + monday                   +6,561    -2,850      -836       9%    16%    15%      +2,205             8%
+  (public copy: rows stacking these beside a private reference strategy are omitted)
+
+7. DIRECTION: the call against a coin flip on the same fills (drift removed)
+  noise          skill +0.0600 DATR a trade, t +3.23
+  noise_vwap     skill +0.0336 DATR a trade, t +3.23
+  noise_vwap_90  skill +0.0272 DATR a trade, t +2.40
+  monday         skill +0.0000 DATR a trade, t +0.00
+  first60_hold   skill +0.0366 DATR a trade, t +2.42
+  orb30          skill +0.0230 DATR a trade, t +1.87
+  long_day       skill -0.0000 DATR a trade, t -0.00
+
+8. NQ AND ES SIDE BY SIDE, in DATR units after today's cost: each year's total (t), then before and after publication
+  key            mkt           2021           2022           2023           2024           2025           2026 |      to Apr 2024    from May 2024
+  noise          NQ    +1.36 (+0.22)  +14.57 (+2.22)   +9.42 (+1.56)  +10.53 (+1.63)   +7.23 (+0.94)   +4.33 (+0.81) | t +2.48 Sh +1.38  t +1.77 Sh +1.15
+  noise          ES    +4.36 (+0.60)   +6.21 (+0.79)   +4.27 (+0.61)   +1.84 (+0.25)  +12.58 (+1.70)   -2.77 (-0.52) | t +1.62 Sh +0.89  t +0.43 Sh +0.28
+  noise_vwap     NQ    +2.60 (+0.55)   +7.34 (+1.45)  +10.52 (+2.36)   +9.55 (+1.66)   +1.97 (+0.30)   +3.87 (+0.93) | t +2.67 Sh +1.49  t +1.35 Sh +0.88
+  noise_vwap     ES   +10.96 (+2.04)   +8.31 (+1.43)   +9.67 (+2.04)   +6.02 (+0.91)   -1.09 (-0.18)   -4.57 (-1.05) | t +3.23 Sh +1.78  t -0.28 Sh -0.19
+  noise_vwap_90  NQ    +2.83 (+0.86)  +11.26 (+2.14)   +7.83 (+1.80)   +6.49 (+1.09)   -2.07 (-0.29)   -0.12 (-0.03) | t +3.36 Sh +1.87  t -0.13 Sh -0.09
+  noise_vwap_90  ES    +5.85 (+1.11)  +10.15 (+1.78)   +6.89 (+1.58)   +5.47 (+0.81)   +4.28 (+0.67)   -3.28 (-0.79) | t +2.77 Sh +1.52  t +0.30 Sh +0.20
+  monday         NQ    +1.91 (+0.42)   +1.46 (+0.39)  +12.42 (+3.79)   +3.33 (+0.77)   +7.37 (+1.74)   +6.90 (+1.71) | t +1.98 Sh +1.10  t +2.84 Sh +1.85
+  monday         ES    +1.31 (+0.30)   +1.23 (+0.32)  +11.63 (+3.99)   +2.00 (+0.47)   +7.14 (+1.64)   +4.52 (+1.27) | t +1.79 Sh +0.98  t +2.37 Sh +1.56

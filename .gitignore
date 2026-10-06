@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Market data is never committed (vendor terms); see README for where each input comes from.
+data/

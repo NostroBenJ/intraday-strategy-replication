@@ -1,0 +1,113 @@
+PUBLISHED INTRADAY STRATEGIES ON NQ AND ES - THE BATCH
+50 strategies. Daily result in DATR units (points / the 20-day mean regular-session range), net of costs.
+  A  NQ 2021-2026  1,406 sessions  2021-02-02 .. 2026-09-25
+  B  ES 2021-2026  1,410 sessions  2021-01-04 .. 2026-08-28
+  C  NQ 2016-2020    971 sessions  2016-07-25 .. 2020-12-31
+  D  ES 2013-2020  1,772 sessions  2013-03-27 .. 2020-12-31
+  days refused, NQ 2021-2026: 5 history has a hole or is too short, 53 incomplete session
+    of these, on an ordinary full trading day (8): 2021-01-04 history has a hole or is too short; 2021-01-05 history has a hole or is too short; 2021-01-06 history has a hole or is too short; 2021-01-07 history has a hole or is too short; 2021-01-08 history has a hole or is too short; 2023-04-05 incomplete session; 2026-06-09 incomplete session; 2026-07-24 incomplete session
+  days refused, NQ 2016-2020: 2 history has a hole or is too short, 43 incomplete session, 2 no time-exit bar, 126 roll window
+    of these, on an ordinary full trading day (9): 2019-07-24 no time-exit bar; 2020-01-16 incomplete session; 2020-01-30 incomplete session; 2020-02-06 no time-exit bar; 2020-02-27 incomplete session; 2020-03-03 incomplete session; 2020-03-04 history has a hole or is too short; 2020-03-09 history has a hole or is too short; 2020-03-10 incomplete session
+  days refused, ES: 94 history has a hole or is too short, 108 incomplete session, 2 jump inside the session
+    of these, on an ordinary full trading day (97): 2013-01-02 history has a hole or is too short; 2013-01-07 history has a hole or is too short; 2013-01-08 history has a hole or is too short; 2013-01-10 history has a hole or is too short; 2013-01-11 history has a hole or is too short; 2013-01-14 history has a hole or is too short; 2013-01-28 history has a hole or is too short; 2013-01-29 history has a hole or is too short; 2013-02-01 history has a hole or is too short; 2013-02-04 history has a hole or is too short; 2013-02-06 history has a hole or is too short; 2013-02-11 history has a hole or is too short; 2013-02-19 history has a hole or is too short; 2013-02-21 history has a hole or is too short; 2013-02-25 history has a hole or is too short; 2013-03-01 history has a hole or is too short; 2013-03-04 history has a hole or is too short; 2013-03-11 history has a hole or is too short; 2013-03-12 history has a hole or is too short; 2013-03-13 history has a hole or is too short; 2013-03-14 history has a hole or is too short; 2013-03-18 history has a hole or is too short; 2013-11-11 history has a hole or is too short; 2013-11-14 history has a hole or is too short; 2013-11-15 history has a hole or is too short; 2013-11-18 history has a hole or is too short; 2013-11-21 history has a hole or is too short; 2013-11-27 history has a hole or is too short; 2013-12-02 history has a hole or is too short; 2013-12-04 history has a hole or is too short; 2013-12-09 history has a hole or is too short; 2013-12-11 history has a hole or is too short; 2013-12-12 history has a hole or is too short; 2013-12-16 history has a hole or is too short; 2013-12-23 history has a hole or is too short; 2013-12-26 history has a hole or is too short; 2013-12-27 history has a hole or is too short; 2013-12-30 history has a hole or is too short; 2013-12-31 history has a hole or is too short; 2014-01-02 history has a hole or is too short; 2014-01-06 history has a hole or is too short; 2014-01-09 history has a hole or is too short; 2014-01-10 history has a hole or is too short; 2014-01-13 history has a hole or is too short; 2014-01-15 history has a hole or is too short; 2014-01-27 history has a hole or is too short; 2014-01-31 history has a hole or is too short; 2014-02-03 history has a hole or is too short; 2014-02-05 history has a hole or is too short; 2014-02-06 history has a hole or is too short; 2014-02-10 history has a hole or is too short; 2014-02-12 history has a hole or is too short; 2014-02-18 history has a hole or is too short; 2014-02-26 history has a hole or is too short; 2014-03-03 history has a hole or is too short; 2014-03-06 history has a hole or is too short; 2014-03-07 history has a hole or is too short; 2014-03-10 history has a hole or is too short; 2014-03-11 history has a hole or is too short; 2014-09-29 history has a hole or is too short; and 37 more
+
+COSTS: a round trip on set A is 1.00 points, 0.40% of its median day's range (251 points).
+  At their own ticks the other sets would pay 1.29% (ES 2021-2026, median range 54), 1.23% (NQ 2016-2020, median range 82), 3.82% (ES 2013-2020, median range 18).
+  Sets B, C and D are charged 0.40% of the day's range a round trip instead, so that every era is judged at today's cost.
+
+best of 50 under pure chance, 95th percentile of t: NQ 2021-2026 +3.02; before 2021 +3.06; whole sample +3.03   (5,000 draws, seed 20261001)
+
+RESULTS (t = mean daily result over its standard error; p = corrected for running the whole batch)
+  key             tr/day | NQ 21-26 gross      net      t Sharpe      p $/yr 1 MNQ | ES 21-26 t | NQ 16-20 t ES 13-20 t before t      p | whole t      p
+  -- momentum
+  gao               0.99 |        -0.0084  -0.0124  -2.53  -1.07  1.000     -1,271 |      -1.34 |      +0.21      -1.92    -1.26  1.000 |   -2.53  1.000
+  gao_both          0.52 |        -0.0025  -0.0046  -1.36  -0.58  1.000       -439 |      -0.33 |      +0.87      -1.28    -0.63  1.000 |   -1.31  1.000
+  gao_highvix       0.43 |        -0.0043  -0.0056  -1.60  -0.68  1.000       -784 |      -0.92 |      +0.68      -0.39    +0.26  1.000 |   -0.68  1.000
+  gao_both_hivix    0.22 |        +0.0008  +0.0001  +0.04  +0.02  1.000         -2 |      +0.32 |      +1.15      +0.12    +0.63  1.000 |   +0.56  1.000
+  rod               0.99 |        -0.0042  -0.0082  -1.67  -0.71  1.000       -827 |      -1.51 |      +0.93      +0.80    +1.13  0.992 |   -0.12  1.000
+  rod_day           1.00 |        -0.0028  -0.0068  -1.40  -0.59  1.000       -528 |      -1.66 |      +0.22      +1.08    +1.08  0.994 |   +0.04  1.000
+  first15_hold      1.00 |        +0.0380  +0.0339  +1.94  +0.82  0.634     +5,153 |      +0.45 |      +1.43      +0.27    +0.54  1.000 |   +1.73  0.802
+  first30_hold      0.99 |        -0.0030  -0.0070  -0.42  -0.18  1.000       -369 |      -1.38 |      +0.91      +0.47    +0.85  0.999 |   +0.35  1.000
+  first60_hold      1.00 |        +0.0371  +0.0330  +2.19  +0.93  0.426     +4,454 |      +0.65 |      +0.08      -0.43    -0.42  1.000 |   +1.10  0.991
+  morning_hold      1.00 |        +0.0201  +0.0161  +1.32  +0.56  0.966     +2,953 |      +0.25 |      +0.63      -0.22    +0.11  1.000 |   +0.93  0.999
+  big_day           0.08 |        +0.0024  +0.0021  +0.88  +0.37  0.999       +400 |      -0.45 |      +0.40      -0.58    +0.34  1.000 |   +0.87  0.999
+  vwap_trend        7.47 |        +0.0383  +0.0080  +0.45  +0.19  1.000       +219 |      +0.43 |      +2.43      -0.40    +0.53  1.000 |   +0.69  1.000
+  -- overnight
+  gap_follow        0.99 |        -0.0065  -0.0105  -0.56  -0.24  1.000       -879 |      -1.22 |      +0.07      -0.68    -0.09  1.000 |   -0.45  1.000
+  gap_fade          0.99 |        +0.0065  +0.0025  +0.13  +0.06  1.000       -108 |      +0.80 |      -0.41      +0.22    -0.39  1.000 |   -0.19  1.000
+  gap_fade_30       0.99 |        +0.0046  +0.0006  +0.07  +0.03  1.000        -78 |      +0.24 |      +0.06      +0.66    +0.66  1.000 |   +0.51  1.000
+  gap_fade_1h       0.54 |        +0.0068  +0.0046  +0.58  +0.25  1.000       +724 |      -0.27 |      +0.88      -0.49    +0.06  1.000 |   +0.45  1.000
+  biggap_follow     0.27 |        -0.0178  -0.0189  -1.74  -0.74  1.000     -1,866 |      -1.11 |      -0.74      +0.94    +0.54  1.000 |   -0.69  1.000
+  biggap_fade       0.27 |        +0.0178  +0.0167  +1.54  +0.65  0.896     +1,597 |      +0.92 |      +0.60      -1.14    -0.75  1.000 |   +0.41  1.000
+  ovn_last30        0.99 |        -0.0022  -0.0062  -1.27  -0.54  1.000       -629 |      -0.34 |      -1.35      -1.88    -1.42  1.000 |   -1.90  1.000
+  ovn_last30_big    0.54 |        -0.0060  -0.0082  -2.33  -0.99  1.000       -895 |      -2.80 |      -0.65      -1.66    -1.09  1.000 |   -2.18  1.000
+  night_drift       1.00 |        +0.0024  -0.0016  -0.58  -0.24  1.000       +128 |      -1.60 |      +0.55      +2.78    +2.77  0.113 |   +1.85  0.707
+  -- breakout
+  orb5_10r          1.00 |        +0.0162  +0.0122  +1.20  +0.51  0.984     +1,192 |      +0.23 |      +2.35      +1.34    +1.72  0.793 |   +2.09  0.512
+  orb5_close        1.00 |        +0.0199  +0.0159  +1.48  +0.63  0.922     +1,834 |      +0.22 |      +2.26      +1.26    +1.61  0.858 |   +2.19  0.431
+  orb30             0.98 |        +0.0288  +0.0248  +1.95  +0.82  0.626     +2,521 |      +1.26 |      -0.23      -0.88    -1.20  1.000 |   +0.36  1.000
+  orb60             0.91 |        +0.0259  +0.0222  +1.90  +0.80  0.663     +2,677 |      +0.61 |      -0.37      +0.07    -0.14  1.000 |   +1.12  0.991
+  orb30_hivix       0.42 |        +0.0106  +0.0092  +1.03  +0.44  0.996     +1,130 |      +0.73 |      -0.25      -0.25    -0.43  1.000 |   +0.30  1.000
+  noise             0.60 |        +0.0362  +0.0337  +3.02  +1.28  0.049     +4,767 |      +1.53 |      +0.91      +0.40    +0.74  1.000 |   +2.49  0.225
+  noise_vwap        0.88 |        +0.0291  +0.0255  +2.82  +1.19  0.094     +3,599 |      +2.16 |      +2.35      +1.69    +1.91  0.662 |   +3.28  0.022
+  noise_vwap_90     0.80 |        +0.0218  +0.0187  +2.07  +0.88  0.517     +2,214 |      +2.17 |      +3.28      +2.19    +2.83  0.095 |   +3.50  0.011
+  -- clock
+  long_first30      1.00 |        +0.0029  -0.0011  -0.14  -0.06  1.000        -27 |      +0.66 |      +0.43      +0.10    +0.30  1.000 |   +0.12  1.000
+  lunch_short       1.00 |        -0.0179  -0.0219  -3.37  -1.43  1.000     -2,377 |      -2.13 |      -1.35      -2.19    -2.37  1.000 |   -4.00  1.000
+  lunch_long        1.00 |        +0.0050  +0.0009  +0.11  +0.05  1.000       +723 |      +0.12 |      +1.10      +0.38    +0.44  1.000 |   +0.40  1.000
+  long_last30       1.00 |        -0.0002  -0.0043  -0.87  -0.37  1.000       -547 |      -1.41 |      -1.46      -2.01    -1.58  1.000 |   -1.79  1.000
+  short_last30      1.00 |        +0.0002  -0.0039  -0.79  -0.33  1.000       -449 |      +0.06 |      +0.28      +0.61    +0.11  1.000 |   -0.37  1.000
+  long_day          1.00 |        +0.0144  +0.0103  +0.55  +0.23  1.000     +1,435 |      +0.37 |      +1.23      +1.02    +1.41  0.945 |   +1.42  0.944
+  -- calendar
+  tom               0.19 |        +0.0099  +0.0091  +1.09  +0.46  0.994     +1,873 |      +0.94 |      -0.24      -0.48    -0.20  1.000 |   +0.56  1.000
+  opex_week         0.23 |        -0.0102  -0.0111  -1.24  -0.53  1.000     -1,812 |      -1.11 |      +1.00      +1.52    +1.41  0.945 |   +0.23  1.000
+  pre_holiday       0.04 |        +0.0014  +0.0012  +0.38  +0.16  1.000        +34 |      +0.70 |      -0.40      +0.88    +0.79  1.000 |   +0.81  1.000
+  payday            0.05 |        -0.0012  -0.0014  -0.42  -0.18  1.000       -422 |      -0.43 |      +1.82      +2.84    +3.04  0.054 |   +2.02  0.570
+  opex_am_short     0.05 |        +0.0054  +0.0052  +1.66  +0.70  0.831       +460 |      +0.65 |      +0.65      -0.05    +0.64  1.000 |   +1.69  0.826
+  fomc_pre          0.03 |        +0.0005  +0.0004  +0.29  +0.12  1.000        -12 |      -0.81 |      -1.88      -1.80    -1.73  1.000 |   -1.24  1.000
+  fomc_pre_hivix    0.01 |        +0.0007  +0.0007  +0.70  +0.30  1.000        +30 |      +0.56 |      -0.52      +0.38    +0.32  1.000 |   +0.69  1.000
+  fomc_after        0.03 |        +0.0001  -0.0000  -0.00  -0.00  1.000       -226 |      +0.16 |      -0.67      -0.71    -0.46  1.000 |   -0.30  1.000
+  fomc_reversal     0.03 |        -0.0035  -0.0036  -0.92  -0.39  1.000       -483 |      +0.35 |      +1.26      +2.37    +2.37  0.307 |   +0.80  1.000
+  monday            0.19 |        +0.0245  +0.0237  +3.36  +1.42  0.015     +2,962 |      +2.89 |      +1.34      +0.72    +1.23  0.980 |   +3.06  0.045
+  friday            0.20 |        +0.0031  +0.0023  +0.26  +0.11  1.000       +162 |      +0.31 |      +0.52      +0.65    +0.49  1.000 |   +0.54  1.000
+  -- daily
+  down3_long        0.08 |        +0.0110  +0.0106  +1.95  +0.82  0.625     +1,674 |      +1.94 |      -0.15      -1.24    -0.92  1.000 |   +0.41  1.000
+  yday_follow       0.99 |        +0.0059  +0.0019  +0.10  +0.04  1.000       -706 |      -0.35 |      -2.19      -0.99    -1.70  1.000 |   -1.16  1.000
+  yday_fade         0.99 |        -0.0059  -0.0099  -0.53  -0.22  1.000       -281 |      -0.07 |      +1.85      +0.53    +1.21  0.982 |   +0.51  1.000
+  same_half_hour    6.95 |        +0.0003  -0.0280  -1.63  -0.69  1.000     -4,570 |      -1.32 |      -2.60      -2.65    -3.03  1.000 |   -3.32  1.000
+
+ROUTE 1 (strong now: corrected p <= 0.05 on NQ 2021-2026): noise, monday
+ROUTE 2 (there before and still there: corrected p <= 0.1 before 2021, then confirmed on NQ 2021-2026 at t >= 1.96): candidates noise_vwap_90, payday; confirmed noise_vwap_90
+ROUTE 3 (there all along: corrected p <= 0.05 on the whole sample and positive before 2021, then t >= 1.645 on NQ 2021-2026): candidates noise_vwap, noise_vwap_90, monday; confirmed noise_vwap, noise_vwap_90, monday
+
+ACCOUNT FIT on one MNQ, NQ 2021-2026 (survivors first, then the five best of the rest for context)
+  key              $ a year  worst DD worst day days<=-1200 best day share bust<=60  <=120  <=250 median @120 corr w/ bot  fits
+  noise              +4,767    -2,933    -1,890           1            13%       5%    15%    20%      +2,042       +0.37  YES
+  noise_vwap         +3,599    -4,050      -690           0            15%       3%    11%     9%      +1,741       +0.33  YES
+  noise_vwap_90      +2,214    -5,814    -1,297           1            24%       8%    19%    22%      +1,110       +0.30  YES
+  monday             +2,962    -2,666    -1,168           0             8%       6%    16%    24%      +1,205       +0.07  YES
+  first60_hold       +4,454    -8,196    -2,244           6            14%      29%    42%    42%      +1,073       +0.34  -
+  down3_long         +1,674    -2,146      -977           0            19%       2%     3%     0%        +598       +0.02  -
+  orb30              +2,521    -6,273      -892           0            22%      28%    34%    42%      +1,015       +0.46  -
+  first15_hold       +5,153    -8,608    -2,151           6            13%      42%    58%    65%      -2,000       +0.20  -
+  orb60              +2,677    -5,332      -946           0            21%      32%    45%    65%         +13       +0.34  -
+
+MAP (descriptive): mean move of each half hour, long, BEFORE costs, in DATR units x 100, with its t
+  window              NQ 2021-26       ES 2021-26       NQ 2016-20       ES 2013-20
+  09:30-10:00      +0.29 (+0.37)    +0.85 (+1.25)    +0.84 (+0.83)    +0.46 (+0.73)
+  10:00-10:30      -0.41 (-0.64)    -0.51 (-0.82)    +0.16 (+0.21)    +0.22 (+0.43)
+  10:30-11:00      -0.82 (-1.50)    -0.45 (-0.84)    -0.60 (-0.92)    -0.38 (-0.77)
+  11:00-11:30      +0.92 (+1.88)    +0.50 (+1.01)    +0.67 (+1.06)    +0.49 (+1.04)
+  11:30-12:00      +0.86 (+1.96)    +0.54 (+1.18)    +0.10 (+0.18)    +0.44 (+1.05)
+  12:00-12:30      -0.13 (-0.33)    -0.06 (-0.14)    +0.75 (+1.45)    +0.37 (+1.00)
+  12:30-13:00      -0.06 (-0.15)    -0.09 (-0.23)    +0.35 (+0.73)    +0.62 (+1.87)
+  13:00-13:30      +0.12 (+0.28)    +0.12 (+0.27)    +0.17 (+0.39)    -0.29 (-0.82)
+  13:30-14:00      +0.55 (+1.46)    +0.53 (+1.32)    +0.18 (+0.38)    +0.01 (+0.02)
+  14:00-14:30      -0.17 (-0.39)    -0.18 (-0.39)    +0.62 (+1.23)    +0.78 (+1.79)
+  14:30-15:00      +0.81 (+1.98)    +0.84 (+1.85)    +0.46 (+0.95)    -0.05 (-0.12)
+  15:00-15:30      -0.50 (-1.25)    -0.54 (-1.20)    +0.14 (+0.29)    +0.31 (+0.76)
+  15:30-16:00      -0.02 (-0.04)    -0.44 (-0.74)    -0.59 (-0.87)    -0.75 (-1.31)
+
+VERDICT: can go to paper trading: noise, noise_vwap, noise_vwap_90, monday
+
+ran in 70 s

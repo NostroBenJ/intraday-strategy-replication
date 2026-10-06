@@ -1,0 +1,23 @@
+Frozen 2026-10-01 03:12:31 EDT - before any real bar was scored.
+verify.py (full run, verify_output.txt): all checks passed, 142 checks ok
+
+SHA-256
+f781b772f7c85b4df1b6070aa9792dadc4da89d012d659bc2f3ad8f8f4c525a6 *PREREGISTRATION.md
+2d887bb2426a9f1b67c54cb97c68a51b3c570b7b94a29fee4c97faca99eac739 *CATALOG.md
+46c1b4574e35dad1f1510eac28189ba8da5fa529c61a56c1d39f845b5f4b9395 *registry.py
+2140411aa7f81121014cd816df0c97a28d4d77d7d6b9ba39a9dcb12b22fa458f *strategies.py
+834c4c49c79382f9fe3c91e0f312e52574d7728f8caab9362d94583ac68d6354 *batch.py
+28c7204ff65524e611aff76fd31ad5401141fc575e8da4c08ad2cd62716b1df0 *core.py
+ff212d219494e98143831e2656392797bf58bb523d20cdf273dd240a8ea8d276 *data.py
+8519f0696f2086eab08673e0721122a047c7f78c7eab66a13e89928a7870ee27 *run_batch.py
+b444a3b2c40d8c27be54f47b1c495f51eb12aa3dfa2b00a7f3024d8eeadbcb07 *verify.py
+f5d1e16dbf03f3b76c581b26f13981fb56fa5861284a63ea62e5412b2ccf7dae *by_year.py
+4d7f37664efd4f65b7910e73d2c3aeece1544af87ed4096676c88849ebe4434c *data/vix_fred.csv
+53a79ab977c44eca5033caf4c6ecf15d668659fdaac39928dbd45a5e878de269 *verify_output.txt
+
+inputs
+1103987b6b4ecce6b81777f1f1b67d39fa16bd3083fc722029622f183c460b5c */c/Users/jontr/dev/ftm-port/data/nq_1m_eth_nt.csv
+4377d5c367b5c6b3f9a96cd71a7c4e6791ff358cd8f82af61109238942a03a23 */c/Users/jontr/Downloads/quantdesk/nq_f_5m_lse.csv
+2a3dbc554861d7368d12a15f59a5f689f7fea504e9f0bd806a83633032085343 */c/Users/jontr/Downloads/ta_setups/data/es_5m_adj.csv
+8e2b12ea397f7cb14750017b1fc26739d1e02c3f15410c4cf8203884b4277f54 */c/Users/jontr/Downloads/ta_setups/data/es_1m_rth_adj.csv
+b2d3564d00604b1deb806cbf79e8060cc6a8410f93899e36cd8e8b68d6ab9e9d */c/Users/jontr/dev/ftm-port/data/reference_ftm_trades.csv

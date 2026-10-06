@@ -1,0 +1,13 @@
+# Files hashed in FROZEN.txt: never convert their line endings, so sha256sum -c passes on any checkout.
+FROZEN.txt -text
+PREREGISTRATION.md -text
+CATALOG.md -text
+registry.py -text
+strategies.py -text
+batch.py -text
+core.py -text
+data.py -text
+run_batch.py -text
+verify.py -text
+by_year.py -text
+verify_output.txt -text

@@ -1,0 +1,144 @@
+[1] the exchange calendar
+  [ok] Easter Sunday: 2019-04-21, 2021-04-04, 2024-03-31, 2026-04-05
+  [ok] NYSE holidays 2024 by rule match the published list
+  [ok] 2022: New Year's Day on a Saturday is not kept on the Friday; Juneteenth and Christmas move to Monday
+  [ok] 2021: Independence Day kept on Monday 5 July, Christmas on Friday 24 December, no Juneteenth yet
+  [ok] special closures: 2018-12-05 and 2025-01-09
+  [ok] turn of the month around January 2024: 29 Dec, then 2, 3, 4 Jan; 31 Jan, then 1, 2, 5 Feb
+  [ok] monthly expiration: 19 Jan 2024; its week is 16-19 Jan (Monday the 15th is a holiday)
+  [ok] April 2022: the third Friday is Good Friday, so expiration is Thursday the 14th; the week is 11-14 April
+  [ok] pre-holiday: Friday 12 Jan 2024 (before MLK Monday) and Thursday 28 Mar 2024 (before Good Friday)
+  [ok] FOMC statement days: 31 Jan and 20 Mar 2024; not the Sunday meeting of 2020-03-15, not January 2013 (14:15); 108 in all  108 dates
+  [ok] day of week and first/last of the month
+  [ok] every flag of every trading day 2013-2026 matches a restatement from the list of trading days  3,521 days, 0 differ
+[2] what a Day knows
+  [ok] session runs 09:30 to the 16:00 bar; signals to 15:50, entries to 15:55
+  [ok] yesterday's close is the open of yesterday's 16:00 bar, and yesterday is the previous trading day
+  [ok] DATR on every session: the mean high-low range of the previous 20 sessions, today excluded; none until 15 exist  294 sessions, 0 differ
+  [ok] the pre-open bar is the 09:25 bar of the same date
+  [ok] the day's bars start at 00:00 of its own date, and every clock time from 00:00 to 16:00 is found
+  [ok] half-hour moves from the open are stored for 10:00 .. 16:00, each the close of the bar ending there
+  [ok] on this walk a bar's open is not the last close (so a price read off the wrong bar shows)
+  [ok] across an exchange holiday, yesterday is the last trading day before it
+  [ok] after a dropped session there is no 'yesterday' (so no overnight signal) but the lookback chain goes on
+  [ok] VIX flag on every session: the last close before today against the median of the 252 closes before today  294 sessions, 0 differ
+[3] a plan's fill, cost and twin (NQ micro: tick 0.25, commission 0.50 point)
+  [ok] long 1 -> 3 with no stop: filled 100.25, out at 103.00: gross +3.00, net 3.00 - 0.25 - 0.25 - 0.50 = +2.00
+  [ok] the twin of a no-stop trade is its exact negative before costs
+  [ok] short 1 -> 3 with no stop: filled 99.75, out at 103.00: gross -3.00, net -3.00 - 0.25 - 0.25 - 0.50 = -4.00
+  [ok] a stop is rounded up to the tick (3.10 -> 3.25) and fills a tick worse: net -3.25 - 0.25 - 0.50 = -4.00
+  [ok] ...and its twin, short from 99.75 with the same 3.25, is stopped at 103.00 on bar 2: gross -3.00
+  [ok] a short's stop: from 99.75, stop 102.75, hit on bar 2 (high 104.00): net -3.00 - 0.25 - 0.50 = -3.75
+  [ok] a target needs a tick through: 103.25 + 0.25 = 103.50 is traded on bar 2 (high 104.00): gross +3.25
+  [ok] a short's target: from 102.25, target 97.25, a tick through is 97.00 (low 96.00): net +5.00 - 0.50 = +4.50
+  [ok] a stop given as a price (99.00): 1.25 from the 100.25 fill, hit on bar 4: net -1.25 - 0.25 - 0.50 = -2.00
+  [ok] a target of 2R on that stop is 2.50: 102.75, a tick through traded on bar 2: net +2.50 - 0.25 - 0.50 = +2.00
+  [ok] the same for a short: stop 101.00 is 1.25 above the 99.75 fill and is hit on bar 1 itself (high 101.00)
+  [ok] a stop price the fill is already beyond is hit at once: in and out at the open, two ticks and the commission, -1.00
+  [ok] ...the same for a short whose stop price is exactly its fill (99.75)
+  [ok] refused: sig 1, k 1, x 3, side 1
+  [ok] refused: sig 0, k 3, x 3, side 1
+  [ok] refused: sig 0, k 1, x 6, side 1
+  [ok] refused: sig 0, k 1, x 3, side 1, stop 1.0, stop_px 99.0
+  [ok] refused: sig 0, k 1, x 3, side 1, target_r 2.0
+[4] every strategy against a second implementation: decision bar, entry, exit, side, stop and target
+  [ok] gao             sign(10:00 - yesterday's close), 15:30-16:00  279 plans, 0 days differ
+  [ok] gao_both        only when 15:00-15:30 agrees  140 plans, 0 days differ
+  [ok] rod             sign(15:30 - yesterday's close)  279 plans, 0 days differ
+  [ok] rod_day         sign(15:30 - open)  275 plans, 0 days differ
+  [ok] first15_hold    sign(09:45 - open), held 09:45-16:00  272 plans, 0 days differ
+  [ok] first30_hold    held 10:00-16:00  279 plans, 0 days differ
+  [ok] first60_hold    sign(10:30 - open), held 10:30-16:00  275 plans, 0 days differ
+  [ok] morning_hold    sign(12:00 - open), held 12:00-16:00  277 plans, 0 days differ
+  [ok] gap_follow      follow the overnight move (09:25 close - yesterday's close)  278 plans, 0 days differ
+  [ok] gap_fade        fade it  278 plans, 0 days differ
+  [ok] gap_fade_30     fade it 09:30-10:00  278 plans, 0 days differ
+  [ok] gap_fade_1h     0.25 DATR or more, 09:30-10:30  185 plans, 0 days differ
+  [ok] biggap_follow   0.5 DATR or more, followed  92 plans, 0 days differ
+  [ok] biggap_fade     0.5 DATR or more, faded  92 plans, 0 days differ
+  [ok] ovn_last30      follow it 15:30-16:00  278 plans, 0 days differ
+  [ok] ovn_last30_big  the same for 0.25 DATR or more  185 plans, 0 days differ
+  [ok] big_day         move on the day at 14:45 beyond a threshold (0.03% here, 2% registered)  221 plans, 0 days differ
+  [ok] big_day         registered at 14:45 and 2%, and silent on a walk that never moves 2%
+  [ok] vwap_trend      side of the session VWAP on every 5-minute close  2504 plans, 0 days differ
+  [ok] long_first30    long 09:30-10:00  279 plans, 0 days differ
+  [ok] lunch_short     short 11:00-12:00  279 plans, 0 days differ
+  [ok] opex_am_short   short 09:30-12:00 on opex days  13 plans, 0 days differ
+  [ok] lunch_long      long 12:00-14:00  279 plans, 0 days differ
+  [ok] night_drift     long 02:00-03:00  279 plans, 0 days differ
+  [ok] long_last30     long 15:30-16:00  279 plans, 0 days differ
+  [ok] short_last30    short 15:30-16:00  279 plans, 0 days differ
+  [ok] long_day        long 09:30-16:00  279 plans, 0 days differ
+  [ok] tom             long 09:30-16:00 on tom days  54 plans, 0 days differ
+  [ok] opex_week       long 09:30-16:00 on opex_week days  65 plans, 0 days differ
+  [ok] pre_holiday     long 09:30-16:00 on pre_holiday days  11 plans, 0 days differ
+  [ok] fomc_pre        long 09:30-13:55 on fomc days  8 plans, 0 days differ
+  [ok] monday          long 09:30-16:00 on dow0 days  49 plans, 0 days differ
+  [ok] friday          long 09:30-16:00 on dow4 days  57 plans, 0 days differ
+  [ok] fomc_after      follow 14:00-14:30  8 plans, 0 days differ
+  [ok] fomc_reversal   fade yesterday's close -> 14:00, from 14:05  8 plans, 0 days differ
+  [ok] payday          first trading day on or after the 16th  13 plans, 0 days differ
+  [ok] yday_follow     yesterday's daytime sign  278 plans, 0 days differ
+  [ok] yday_fade       the reverse  278 plans, 0 days differ
+  [ok] down3_long      three lower closes in a row  30 plans, 0 days differ
+  [ok] same_half_hour  yesterday's half-hour signs, a position held while they agree  1935 plans, 0 days differ
+  [ok] same_half_hour  trades fewer than thirteen times a day because agreeing half hours are merged  mean 6.9 a day
+  [ok] orb5_10r        first candle's direction from 09:35, stop at its other end, target 10R  251 plans, 0 days differ
+  [ok] orb5_close      the same, no target  251 plans, 0 days differ
+  [ok] orb30           first close outside the 30-minute range by 15:00, stop at the far side  279 plans, 0 days differ
+  [ok] orb60           first close outside the 60-minute range by 15:00, stop at the far side  277 plans, 0 days differ
+  [ok] noise           noise area, reverse at the opposite boundary  190 plans, 0 days differ
+  [ok] noise_vwap      noise area with the VWAP stop  276 plans, 0 days differ
+  [ok] noise_vwap_90   the same on a 90-day lookback  200 plans, 0 days differ
+  [ok] gao_highvix     equals gao on high-VIX days and is empty otherwise
+  [ok] gao_both_hivix  equals gao_both on high-VIX days and is empty otherwise
+  [ok] orb30_hivix     equals orb30 on high-VIX days and is empty otherwise
+  [ok] fomc_pre_hivix  equals fomc_pre on high-VIX days and is empty otherwise
+  [ok] every registered strategy has a second implementation above  50 strategies
+[5] no look-ahead, far: everything after six random cuts scrambled, and the file ending there
+  [ok] all 50 strategies: every decision before a cut is unchanged by what follows it
+  [ok] a strategy written to trade on the coming close is caught
+    near: every bar of 5 sessions (2022-05-31 .. 2022-06-17) used as a cut
+  [ok] all 51 strategies: nothing decided by a bar changes when everything after that bar is replaced  430 cuts
+  [ok] CHEAT (the close) is caught  at 219 cuts
+  [ok] CHEAT (one bar) is caught  at 3 cuts
+  [ok] CHEAT (an hour) is caught  at 26 cuts
+  [ok] with two bars missing in each of 25 sessions and 400 bars of zero volume, every strategy still runs and every plan fills  12,969 trades
+[6] the reality check and the account simulation
+  [ok] thirty noise series: the best one's corrected p is far above its uncorrected p, and is not accepted  best t +1.74: p alone 0.041, corrected 0.70
+  [ok] add one series with a real mean of 0.15 sd a day: it is the only one the corrected test accepts  t +6.51, corrected p 0.001
+  [ok] the 95th percentile of the best-of-31 t under chance is the best-of-31 normal point  2.89 against 2.94
+  [ok] a series that never trades or never varies has no t and a corrected p of 1; a single winning day has t 1.0 and is not accepted  one winning day: t 1.00, corrected p 0.14
+  [ok] the reality check equals a plain restatement, draw for draw: each draw's own t, centred on the traded days
+  [ok] eight rarely-traded strategies that lose every time do not raise the bar for the other ten  95th percentile of the best t 2.72 against 2.77
+  [ok] t-statistic by hand: mean 2.5, sd 1.29099, t 3.873
+  [ok] drawdown: +1, -3, +1, -2, +5 has a worst peak-to-trough of -4
+  [ok] account: +$50 a day never busts; -$150 a day reaches the -$2,000 limit in every account
+  [ok] account: the limit trails the closing high and locks at +$100 (up to +2,200, back to +100: bust)  {'n': 1, 'bust': 1.0, 'median': -2000.0}
+  [ok] ...and +$150 is still alive
+  [ok] accounts open on the first session of a month only: a loss on a mid-month first day belongs to no account
+[7] the decision's own thresholds, on corrected p-values and t-statistics set by hand
+  [ok] route 1: corrected p 0.050 on set A passes, 0.051 does not, and a negative mean never does
+  [ok] route 2: corrected p 0.100 before 2021 makes a candidate, 0.101 or a negative mean before does not; one candidate is confirmed at t 1.65
+  [ok] route 2: ...and not at t 1.64
+  [ok] route 2: two candidates share the 5%: each needs t 1.96, so 1.97 passes and 1.95 does not
+  [ok] route 3: corrected p 0.050 on the whole sample with a positive mean before 2021, then t 1.645 on set A; 1.64 is not enough
+  [ok] the registered thresholds are the ones in the code: 0.05 now, 0.10 before, 0.05 whole, t 1.645, 5,000 redraws, a quarter of accounts within 120 sessions, $2 a point, eras split at 2021, ES from 2013
+  [ok] the runner's cost for the older sets: a round trip is 1.00 point on NQ and 0.70 on ES; an ES trade that paid a full one is charged 0.4% of the day's range, one that left on a target (0.45) 0.45/0.70 of that
+  [ok] the runner pools two markets by date: the mean where both traded, the one value where one did
+  [ok] the runner's daily series: a day's trades are summed, a day without a trade is zero
+  [ok] short futures days known in advance: an exchange holiday, the Friday after Thanksgiving, 3 July, Christmas Eve; not a plain Wednesday
+[8] the suite against itself: each deliberate bug must make a check fail
+  [ok] every decision reads the open of its own entry bar instead of the close before it  17 checks fail
+  [ok] the VIX flag includes today's own close  1 checks fail
+  [ok] the opening-range stop is two points inside the far side of the range  3 checks fail
+  [ok] the first-candle target is 5R instead of 10R  1 checks fail
+  [ok] a plan declares its decision bar one bar earlier than the bar it read  3 checks fail
+  [ok] same_half_hour closes and reopens at every half hour  2 checks fail
+  [ok] short trades pay no slippage and no commission  5 checks fail
+  [ok] the reality check redraws the raw series without centring them  4 checks fail
+  [ok] the reality check shifts the days a strategy did not trade as well as the days it did  2 checks fail
+  [ok] route 1 accepts a corrected p of 0.10  1 checks fail
+  [ok] route 3 asks only for a positive t on set A (the hole the review found)  2 checks fail
+
+all checks passed
